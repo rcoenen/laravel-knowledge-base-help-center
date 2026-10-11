@@ -1,5 +1,16 @@
 # Laravel Knowledge Base: Help Center
 
+> **Demonstrator, not maintained.** This repo shows what the features below make possible together: a public, multi-language help center on top of [laravel-knowledge-base](https://github.com/jeffersongoncalves/laravel-knowledge-base). It is not published on Packagist and gets no updates; copy what you need.
+>
+> - Public vs staff-only visibility: [laravel-knowledge-base#15](https://github.com/jeffersongoncalves/laravel-knowledge-base/pull/15)
+> - Content localization: [laravel-knowledge-base#16](https://github.com/jeffersongoncalves/laravel-knowledge-base/pull/16)
+> - Collections (e.g. an FAQ) and the `HelpCenter` read API: [laravel-knowledge-base#17](https://github.com/jeffersongoncalves/laravel-knowledge-base/pull/17)
+> - Admin for languages: [filament-knowledge-base#46](https://github.com/jeffersongoncalves/filament-knowledge-base/pull/46)
+> - Guest/user panel visibility fix: [filament-knowledge-base#47](https://github.com/jeffersongoncalves/filament-knowledge-base/pull/47)
+> - Admin for collections: [filament-knowledge-base#48](https://github.com/jeffersongoncalves/filament-knowledge-base/pull/48)
+>
+> The core features are released in [laravel-knowledge-base v1.1.0](https://github.com/jeffersongoncalves/laravel-knowledge-base/releases/tag/v1.1.0).
+
 A ready-made public help center for [jeffersongoncalves/laravel-knowledge-base](https://github.com/jeffersongoncalves/laravel-knowledge-base): a search-first home page with quick answers, topic pages, articles, an FAQ page and search, in every language your knowledge base is configured for.
 
 - Shows only content customers may see: every page goes through the core's `HelpCenter` read API, so internal articles and internal or inactive topics never appear.
@@ -17,9 +28,7 @@ See [DESIGN.md](DESIGN.md) for the design decisions.
 
 ## Install
 
-```bash
-composer require rcoenen/laravel-knowledge-base-help-center
-```
+Not on Packagist: add this repo as a `vcs` repository in your `composer.json` and require `rcoenen/laravel-knowledge-base-help-center:dev-main`, or copy the code into your app.
 
 The help center is off until you switch it on:
 
