@@ -2,6 +2,8 @@
 
 # Laravel Knowledge Base: Help Center
 
+> **Moved.** This demonstrator has been replaced by [laravel-knowledge-base-demo](https://github.com/rcoenen/laravel-knowledge-base-demo): a runnable app (one command, Docker) with the same help center and demo content, plus the Filament admin, on the released versions (core 1.1.0, plugin 3.2.0). This repo is archived.
+
 > **Demonstrator, not maintained.** This repo shows what the features below make possible together: a public, multi-language help center on top of [laravel-knowledge-base](https://github.com/jeffersongoncalves/laravel-knowledge-base). It is not published on Packagist and gets no updates; copy what you need.
 >
 > - Public vs staff-only visibility: [laravel-knowledge-base#15](https://github.com/jeffersongoncalves/laravel-knowledge-base/pull/15)
