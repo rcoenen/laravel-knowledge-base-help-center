@@ -13,7 +13,7 @@ See [DESIGN.md](DESIGN.md) for the design decisions.
 ## Requirements
 
 - PHP 8.2+, Laravel 11 to 13
-- `jeffersongoncalves/laravel-knowledge-base` with content localization, collections and the `HelpCenter` API. These are proposed upstream in [laravel-knowledge-base#16](https://github.com/jeffersongoncalves/laravel-knowledge-base/pull/16) and [#17](https://github.com/jeffersongoncalves/laravel-knowledge-base/pull/17); until they are released, install the core from a branch that has them.
+- `jeffersongoncalves/laravel-knowledge-base` 1.1 or later (content localization, collections and the `HelpCenter` read API)
 
 ## Install
 
