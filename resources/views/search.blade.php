@@ -3,16 +3,12 @@
 @php use Rcoenen\KnowledgeBaseHelpCenter\Support\HelpRoutes; @endphp
 
 @section('title', $query !== '' ? $query : __('kb-help::help.search_button'))
+@section('no_header_search', '1')
 
 @section('content')
     <div class="kb-wrap">
         <div class="kb-search-head">
-            <nav aria-label="{{ __('kb-help::help.breadcrumb') }}">
-                <ol class="kb-crumbs">
-                    <li><a href="{{ HelpRoutes::url('home', $locale) }}">{{ __('kb-help::help.help') }}</a></li>
-                    <li aria-current="page">{{ __('kb-help::help.search_button') }}</li>
-                </ol>
-            </nav>
+            @include('kb-help::partials.back', ['url' => HelpRoutes::url('home', $locale), 'label' => __('kb-help::help.help')])
             <h1 class="kb-visually-hidden">{{ __('kb-help::help.search_label') }}</h1>
             @include('kb-help::partials.search-form', ['id' => 'page', 'query' => $query, 'autofocus' => ! $searched])
         </div>
@@ -34,7 +30,7 @@
                             @if ($result['category'] || $result['locale'] !== $locale)
                                 <div class="kb-list__meta">
                                     @if ($result['category'])
-                                        <span>{{ $result['category'] }}</span>
+                                        <span class="kb-tag kb-tag--topic">{{ $result['category'] }}</span>
                                     @endif
                                     @if ($result['locale'] !== $locale)
                                         <span class="kb-tag">{{ __('kb-help::help.in_language', ['language' => HelpRoutes::languageName($result['locale'], $locale)]) }}</span>

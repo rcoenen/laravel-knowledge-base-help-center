@@ -1,4 +1,4 @@
-<p align="center"><img src="art/fernleaf-logo.svg" width="96" alt="Fernleaf, the fictional demo shop"></p>
+<p align="center"><img src="art/fernleaf-logo.svg" width="96" alt="Fernleaf Demo Shop, the fictional demo"></p>
 
 # Laravel Knowledge Base: Help Center
 
@@ -15,15 +15,15 @@
 
 ## Screenshots
 
-Demo content: Fernleaf, a fictional plant shop (English with German translations).
+Demo content: Fernleaf Demo Shop, a fictional plant shop (English with German translations).
 
 | Home | Article |
 |---|---|
-| ![Home page with search, quick answers and topics](docs/screenshots/home-en.png) | ![Article with "On this page", related articles and feedback](docs/screenshots/article-en.png) |
-| **Same home page in German** | **German reader, English-only article: fallback notice** |
-| ![German home page, English-only answers labelled](docs/screenshots/home-de.png) | ![Fallback notice on an article that has no German version](docs/screenshots/article-de-fallback.png) |
-| **Search in German** | |
-| ![German search results](docs/screenshots/search-de.png) | |
+| ![Home page with search, quick answers and topics](docs/screenshots/home-en.png) | ![Article with a back button, "On this page", related articles and feedback](docs/screenshots/article-en.png) |
+| **Topic with a subtopic** | **Same home page in German** |
+| ![Topic page with a back button and subtopic chip](docs/screenshots/category-en.png) | ![German home page, English-only answers labelled](docs/screenshots/home-de.png) |
+| **German reader, English-only article: fallback notice** | **Search in German** |
+| ![Fallback notice on an article that has no German version](docs/screenshots/article-de-fallback.png) | ![German search results with topic chips](docs/screenshots/search-de.png) |
 
 A ready-made public help center for [jeffersongoncalves/laravel-knowledge-base](https://github.com/jeffersongoncalves/laravel-knowledge-base): a search-first home page with quick answers, topic pages, articles, an FAQ page and search, in every language your knowledge base is configured for.
 
@@ -116,7 +116,7 @@ php artisan migrate:fresh
 php artisan db:seed --class="Rcoenen\KnowledgeBaseHelpCenter\Database\Seeders\HelpCenterDemoSeeder"
 ```
 
-To dress it as the demo shop, as in the screenshots: set `APP_NAME=Fernleaf`, point `knowledge-base-help-center.logo` at `vendor/rcoenen/laravel-knowledge-base-help-center/resources/images/fernleaf-logo.svg`, and set `custom_css` to `.kb { --kb-accent: #2f6b3a; }`.
+To dress it as the demo shop, as in the screenshots: set `knowledge-base-help-center.brand` to `Fernleaf Demo Shop`, point `knowledge-base-help-center.logo` at `vendor/rcoenen/laravel-knowledge-base-help-center/resources/images/fernleaf-logo.svg`, and set `custom_css` to `.kb { --kb-accent: #2f6b3a; }`.
 
 Use it on a development database only: `migrate:fresh` drops all tables.
 

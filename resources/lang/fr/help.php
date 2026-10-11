@@ -5,6 +5,7 @@ return [
     'skip' => 'Aller au contenu',
     'back_to_site' => 'Retour à :brand',
     'language' => 'Langue',
+    'back_to' => 'Retour : :place',
     'breadcrumb' => 'Fil d’Ariane',
 
     'search_heading' => 'Comment pouvons-nous vous aider ?',

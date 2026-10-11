@@ -44,6 +44,10 @@
             </a>
 
             <div class="kb-header__tools">
+                @unless ($__env->hasSection('no_header_search'))
+                    @include('kb-help::partials.header-search')
+                @endunless
+
                 @if ($homeUrl)
                     <a class="kb-header__back" href="{{ $homeUrl }}">{{ __('kb-help::help.back_to_site', ['brand' => $brand]) }}</a>
                 @endif

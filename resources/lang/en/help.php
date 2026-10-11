@@ -5,6 +5,7 @@ return [
     'skip' => 'Skip to content',
     'back_to_site' => 'Back to :brand',
     'language' => 'Language',
+    'back_to' => 'Back to :place',
     'breadcrumb' => 'Breadcrumb',
 
     'search_heading' => 'What do you need help with?',

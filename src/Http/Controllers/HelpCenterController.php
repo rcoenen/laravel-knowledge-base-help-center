@@ -143,6 +143,7 @@ class HelpCenterController extends Controller
         return view('kb-help::category', [
             'locale' => $locale,
             'page' => $page,
+            'parent' => HelpRoutes::parentOf($this->help->categories($locale), $page->category->getKey()),
             'switch' => $this->sameSlugInEveryLanguage($page->slug, 'category'),
             'canonical' => route(HelpRoutes::name('category'), ['locale' => $page->locale, 'slug' => $page->slug]),
         ]);

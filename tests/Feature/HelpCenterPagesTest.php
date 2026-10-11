@@ -115,3 +115,38 @@ it('shows a configured logo before the brand name', function () {
     config(['knowledge-base-help-center.logo' => '/images/logo.png']);
     $this->get('/en/help')->assertOk()->assertSee('src="/images/logo.png"', false);
 });
+
+it('offers a back button one level up on every inner page', function () {
+    // Article in a subtopic: back to that subtopic.
+    $this->get('/en/help/articles/how-often-should-i-water-my-plants')
+        ->assertOk()
+        ->assertSee('data-back', false)
+        ->assertSee('Back to Watering and light')
+        ->assertSee('/en/help/categories/watering-and-light', false);
+
+    // Subtopic: back to its parent topic.
+    $this->get('/en/help/categories/watering-and-light')
+        ->assertOk()
+        ->assertSee('Back to Plant care');
+
+    // Top-level topic, the FAQ and search: back to the help home.
+    $this->get('/en/help/categories/plant-care')->assertOk()->assertSee('Back to Help');
+    $this->get('/en/help/collections/frequently-asked-questions')->assertOk()->assertSee('Back to Help');
+    $this->get('/en/help/search?q=water')->assertOk()->assertSee('Back to Help');
+
+    // In the reader's language.
+    $this->get('/de/help/categories/giessen-und-licht')->assertOk()->assertSee('Zurück: Pflanzenpflege');
+});
+
+it('shows a compact search in the header on inner pages only', function () {
+    $this->get('/en/help')->assertOk()->assertDontSee('data-header-search', false);
+    $this->get('/en/help/search?q=water')->assertOk()->assertDontSee('data-header-search', false);
+    $this->get('/en/help/categories/plant-care')->assertOk()->assertSee('data-header-search', false);
+});
+
+it('describes each topic on the home page', function () {
+    $this->get('/en/help')
+        ->assertOk()
+        ->assertSee('Keeping your plants healthy at home.')
+        ->assertSee('kb-chips--small', false);
+});

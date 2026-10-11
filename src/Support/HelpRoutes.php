@@ -42,6 +42,27 @@ final class HelpRoutes
     }
 
     /**
+     * The parent of a topic in the public topic tree, or null for a top-level
+     * topic (used for the topic page's back link).
+     *
+     * @param  list<CategoryNode>  $nodes
+     */
+    public static function parentOf(array $nodes, mixed $categoryId, ?CategoryNode $parent = null): ?CategoryNode
+    {
+        foreach ($nodes as $node) {
+            if ($node->category->getKey() == $categoryId) {
+                return $parent;
+            }
+
+            if ($node->children !== [] && ($found = self::parentOf($node->children, $categoryId, $node)) !== null) {
+                return $found;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Public articles in a topic including all its subtopics, so a topic whose
      * articles all sit in subtopics does not read as nearly empty.
      */

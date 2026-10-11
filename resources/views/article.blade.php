@@ -16,14 +16,12 @@
 
 @section('content')
     <div class="kb-wrap kb-page">
-        <nav aria-label="{{ __('kb-help::help.breadcrumb') }}">
-            <ol class="kb-crumbs">
-                <li><a href="{{ HelpRoutes::url('home', $locale) }}">{{ __('kb-help::help.help') }}</a></li>
-                @foreach ($page->breadcrumb as $crumb)
-                    <li><a href="{{ HelpRoutes::url('category', $locale, ['slug' => $crumb->slug]) }}">{{ $crumb->translation->getAttribute('name') }}</a></li>
-                @endforeach
-            </ol>
-        </nav>
+        @php $topic = $page->breadcrumb !== [] ? $page->breadcrumb[array_key_last($page->breadcrumb)] : null; @endphp
+        @if ($topic)
+            @include('kb-help::partials.back', ['url' => HelpRoutes::url('category', $locale, ['slug' => $topic->slug]), 'label' => $topic->translation->getAttribute('name')])
+        @else
+            @include('kb-help::partials.back', ['url' => HelpRoutes::url('home', $locale), 'label' => __('kb-help::help.help')])
+        @endif
 
         <div class="kb-article">
             <article lang="{{ $page->locale }}" data-article-slug="{{ $page->slug }}" data-article-locale="{{ $page->locale }}">

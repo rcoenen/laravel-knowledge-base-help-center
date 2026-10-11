@@ -5,6 +5,7 @@ return [
     'skip' => 'Naar de inhoud',
     'back_to_site' => 'Terug naar :brand',
     'language' => 'Taal',
+    'back_to' => 'Terug naar :place',
     'breadcrumb' => 'Kruimelpad',
 
     'search_heading' => 'Waar kunnen we je mee helpen?',

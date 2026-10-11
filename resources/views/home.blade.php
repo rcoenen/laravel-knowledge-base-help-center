@@ -3,6 +3,7 @@
 @php use Rcoenen\KnowledgeBaseHelpCenter\Support\HelpRoutes; @endphp
 
 @section('description', __('kb-help::help.search_heading'))
+@section('no_header_search', '1')
 
 @section('content')
     <section class="kb-hero">
@@ -46,12 +47,18 @@
                 <ul class="kb-topics">
                     @foreach ($categories as $node)
                         <li>
-                            <div class="kb-topic">
-                                <a href="{{ HelpRoutes::url('category', $locale, ['slug' => $node->slug]) }}">{{ $node->name }}</a>
+                            <a class="kb-topic" href="{{ HelpRoutes::url('category', $locale, ['slug' => $node->slug]) }}">
+                                <span class="kb-topic__text">
+                                    <span class="kb-topic__name">{{ $node->name }}</span>
+                                    @if ($topicDescription = $node->translation->getAttribute('description'))
+                                        <span class="kb-topic__description">{{ $topicDescription }}</span>
+                                    @endif
+                                </span>
                                 <span class="kb-count">{{ trans_choice('kb-help::help.articles_count', HelpRoutes::totalArticles($node)) }}</span>
-                            </div>
+                                <span class="kb-topic__chevron" aria-hidden="true">›</span>
+                            </a>
                             @if ($node->children !== [])
-                                <ul class="kb-subtopics">
+                                <ul class="kb-chips kb-chips--small" aria-label="{{ __('kb-help::help.subtopics') }}">
                                     @foreach ($node->children as $child)
                                         <li><a href="{{ HelpRoutes::url('category', $locale, ['slug' => $child->slug]) }}">{{ $child->name }}</a></li>
                                     @endforeach

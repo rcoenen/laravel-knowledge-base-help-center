@@ -5,6 +5,7 @@ return [
     'skip' => 'Zum Inhalt springen',
     'back_to_site' => 'Zurück zu :brand',
     'language' => 'Sprache',
+    'back_to' => 'Zurück: :place',
     'breadcrumb' => 'Brotkrümelnavigation',
 
     'search_heading' => 'Wobei können wir dir helfen?',

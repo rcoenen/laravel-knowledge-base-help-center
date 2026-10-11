@@ -10,12 +10,11 @@
 
 @section('content')
     <div class="kb-wrap kb-page">
-        <nav aria-label="{{ __('kb-help::help.breadcrumb') }}">
-            <ol class="kb-crumbs">
-                <li><a href="{{ HelpRoutes::url('home', $locale) }}">{{ __('kb-help::help.help') }}</a></li>
-                <li aria-current="page">{{ $page->name }}</li>
-            </ol>
-        </nav>
+        @if ($parent)
+            @include('kb-help::partials.back', ['url' => HelpRoutes::url('category', $locale, ['slug' => $parent->slug]), 'label' => $parent->name])
+        @else
+            @include('kb-help::partials.back', ['url' => HelpRoutes::url('home', $locale), 'label' => __('kb-help::help.help')])
+        @endif
 
         <h1 class="kb-title">{{ $page->name }}</h1>
 
