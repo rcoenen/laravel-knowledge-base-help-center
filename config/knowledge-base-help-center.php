@@ -36,6 +36,10 @@ return [
 
     'home_url' => null,
 
+    // A logo before the brand name: a path to an .svg file (inlined, drawn in
+    // --kb-accent-ink on a --kb-accent circle) or an image URL. Null for none.
+    'logo' => null,
+
     'custom_css' => null,
 
     /*

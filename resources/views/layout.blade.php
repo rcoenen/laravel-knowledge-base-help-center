@@ -3,6 +3,8 @@
 
     $brand = config('knowledge-base-help-center.brand') ?: config('app.name');
     $homeUrl = config('knowledge-base-help-center.home_url');
+    $logo = config('knowledge-base-help-center.logo');
+    $logoSvg = is_string($logo) && str_ends_with(strtolower($logo), '.svg') && is_file($logo) ? file_get_contents($logo) : null;
     $switch = $switch ?? [];
     $pageTitle = trim($__env->yieldContent('title'));
 @endphp
@@ -32,6 +34,11 @@
     <header class="kb-header">
         <div class="kb-wrap kb-header__inner">
             <a class="kb-brand" href="{{ HelpRoutes::url('home', $locale) }}">
+                @if ($logoSvg)
+                    <span class="kb-brand__logo" data-logo>{!! $logoSvg !!}</span>
+                @elseif (is_string($logo) && $logo !== '')
+                    <span class="kb-brand__logo kb-brand__logo--image" data-logo><img src="{{ $logo }}" alt=""></span>
+                @endif
                 <span class="kb-brand__name">{{ $brand }}</span>
                 <span class="kb-brand__section">{{ __('kb-help::help.help') }}</span>
             </a>

@@ -105,3 +105,13 @@ it('records "was this helpful?" once per reader', function () {
 
     $this->get($url)->assertSee('Thanks for letting us know.');
 });
+
+it('shows a configured logo before the brand name', function () {
+    $this->get('/en/help')->assertOk()->assertDontSee('data-logo', false);
+
+    config(['knowledge-base-help-center.logo' => __DIR__.'/../../resources/images/fernleaf-logo.svg']);
+    $this->get('/en/help')->assertOk()->assertSee('data-logo', false)->assertSee('<svg', false);
+
+    config(['knowledge-base-help-center.logo' => '/images/logo.png']);
+    $this->get('/en/help')->assertOk()->assertSee('src="/images/logo.png"', false);
+});

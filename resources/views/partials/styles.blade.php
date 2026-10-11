@@ -41,7 +41,11 @@
 /* Header */
 .kb-header { border-bottom: 1px solid var(--kb-rule); }
 .kb-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
-.kb-brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--kb-ink) !important; }
+.kb-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--kb-ink) !important; }
+.kb-brand__logo { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; flex: none; border-radius: 50%; background: var(--kb-accent); color: var(--kb-accent-ink); }
+.kb-brand__logo svg { width: 62%; height: 62%; color: inherit; }
+.kb-brand__logo--image { background: none; }
+.kb-brand__logo--image img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
 .kb-brand__name { font-weight: 650; font-size: 1.05rem; }
 .kb-brand__section { font-family: var(--kb-serif); font-size: 1.05rem; color: var(--kb-slate); padding-left: 10px; border-left: 1px solid var(--kb-rule); }
 .kb-header__tools { display: flex; align-items: center; gap: 20px; font-size: 0.9rem; }

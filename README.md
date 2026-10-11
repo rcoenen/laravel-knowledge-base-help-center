@@ -1,3 +1,5 @@
+<p align="center"><img src="art/fernleaf-logo.svg" width="96" alt="Fernleaf, the fictional demo shop"></p>
+
 # Laravel Knowledge Base: Help Center
 
 > **Demonstrator, not maintained.** This repo shows what the features below make possible together: a public, multi-language help center on top of [laravel-knowledge-base](https://github.com/jeffersongoncalves/laravel-knowledge-base). It is not published on Packagist and gets no updates; copy what you need.
@@ -101,6 +103,8 @@ A fictional houseplant shop, in English with German translations (when `de` is i
 php artisan migrate:fresh
 php artisan db:seed --class="Rcoenen\KnowledgeBaseHelpCenter\Database\Seeders\HelpCenterDemoSeeder"
 ```
+
+To dress it as the demo shop, as in the screenshots: set `APP_NAME=Fernleaf`, point `knowledge-base-help-center.logo` at `vendor/rcoenen/laravel-knowledge-base-help-center/resources/images/fernleaf-logo.svg`, and set `custom_css` to `.kb { --kb-accent: #2f6b3a; }`.
 
 Use it on a development database only: `migrate:fresh` drops all tables.
 
