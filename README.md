@@ -13,6 +13,18 @@
 >
 > The core features are released in [laravel-knowledge-base v1.1.0](https://github.com/jeffersongoncalves/laravel-knowledge-base/releases/tag/v1.1.0).
 
+## Screenshots
+
+Demo content: Fernleaf, a fictional plant shop (English with German translations).
+
+| Home | Article |
+|---|---|
+| ![Home page with search, quick answers and topics](docs/screenshots/home-en.png) | ![Article with "On this page", related articles and feedback](docs/screenshots/article-en.png) |
+| **Same home page in German** | **German reader, English-only article: fallback notice** |
+| ![German home page, English-only answers labelled](docs/screenshots/home-de.png) | ![Fallback notice on an article that has no German version](docs/screenshots/article-de-fallback.png) |
+| **Search in German** | |
+| ![German search results](docs/screenshots/search-de.png) | |
+
 A ready-made public help center for [jeffersongoncalves/laravel-knowledge-base](https://github.com/jeffersongoncalves/laravel-knowledge-base): a search-first home page with quick answers, topic pages, articles, an FAQ page and search, in every language your knowledge base is configured for.
 
 - Shows only content customers may see: every page goes through the core's `HelpCenter` read API, so internal articles and internal or inactive topics never appear.
